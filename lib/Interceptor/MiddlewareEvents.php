@@ -6,12 +6,10 @@ use \GuzzleHttp\Middleware;
 use \GuzzleHttp\Psr7\Stream;
 use \Psr\Http\Message\RequestInterface as streamRequest;
 use \Psr\Http\Message\ResponseInterface as streamResponse;
-use rc\pe\Client\ApiException as apiException;
+use Signer\Manager\Client\ApiException as apiException;
 
 use \Signer\Manager\Interceptor\KeyHandler;
 use \Signer\Manager\Interceptor\MyLogger;
-//use \rc\pe\Client\Model\Errors;
-//use \rc\pe\Client\Model\Error;
 
 
 class MiddlewareEvents
@@ -75,7 +73,6 @@ class MiddlewareEvents
                         $super_response = $response;
                     }
                     else{
-                        //$this->logger->error("Could not retrieve the signature");
                         throw new apiException("Could not retrieve the signature", 403,$response->getHeaders(),""); 
                         $new_stream = build_error("403", "No se recibió la firma");
                         $super_response = $response->withBody($new_stream)->withStatus(403);
@@ -88,22 +85,9 @@ class MiddlewareEvents
             }
             catch (Exception $e) {
                 throw new apiException("Exception when calling verify_signature_header:", 500,$response->getHeaders(),"");
-                //$super_response = build_error("500", "Error inesperado");
-                //$super_response = $response->withBody($new_stream)->withStatus(500);
             }
             return $super_response;
         });
     }
 }
 
-/*function build_error($code, $message){
-    $error = new \rc\pe\Client\Model\Error([
-        "code" => $code,
-        "message" => $message
-    ]);
-    $errors = new \rc\pe\Client\Model\Errores(["errors" => [$error]]);
-    $resource = fopen('data://text/plain,' . $errors,'r');
-    $new_reponse = new \GuzzleHttp\Psr7\Stream($resource);
-    
-    return $new_reponse;
-}*/
