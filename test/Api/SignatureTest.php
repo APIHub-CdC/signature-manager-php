@@ -13,23 +13,20 @@ use \Signer\Manager\Interceptor\MiddlewareEvents;
 
 class SignatureTest extends \PHPUnit_Framework_TestCase
 {
-
-
     public function setUp()
     {
         $this->cadena = 'XXXXXXX';
-        $this->signature = '';
-        $this->signer = '';
-        $this->valida = '';
-        $this->keypair = 'XXXXXXX';
-        $this->cert = 'XXXXXXX';
-        $password = getenv('KEY_PASSWORD');
+        $this->signature = null;
+        $this->signer = null;
+        $this->valida = null;
+        $this->keypair = '/path/to/keypair.pkcs12';
+        $this->cert = '/path/to/certificate.pem';
+        $this->password = getenv('KEY_PASSWORD');
     }
-    
     
     public function testKeyPairCert(){
         try{
-            $this->signer = new KeyHandler($this->keypair, $this->cert, $password);
+            $this->signer = new KeyHandler($this->keypair, $this->cert, $this->password);
             $result = $this->signer;
             $this->assertTrue($this->signer == true);
             return $result;
@@ -39,7 +36,6 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
         }
         
     }
-    
     
     /**
      * @depends testKeyPairCert
