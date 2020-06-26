@@ -9,7 +9,7 @@ use \GuzzleHttp\HandlerStack as handlerStack;
 
 use \Signer\Manager\Client\ApiException;
 use \Signer\Manager\Client\Interceptor\KeyHandler;
-//use \Signer\Manager\Interceptor\MiddlewareEvents;
+use \Signer\Manager\Interceptor\MiddlewareEvents;
 
 class SignatureTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,8 +21,8 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
         $this->signature = '';
         $this->signer = '';
         $this->valida = '';
-        $this->keypair = 'XXXXXXX';
-        $this->cert = 'XXXXXXX';
+        $this->keypair = '/Users/globatos/Documents/CERTIFICADOS/keypair.p12';
+        $this->cert = '/Users/globatos/Documents/CERTIFICADOS/certificate.pem';
         $password = getenv('KEY_PASSWORD');
     }
     
