@@ -2,12 +2,7 @@
 
 namespace Signer\Manager\Client\Interceptor;
 
-use \Monolog\Logger;
-use \Monolog\Formatter\LineFormatter;
-use \Monolog\Handler\StreamHandler;
-
 use \Signer\Manager\Client\Interceptor\MyLogger;
-
 use \Signer\Manager\Client\ApiException;
 
 Class KeyHandler{
