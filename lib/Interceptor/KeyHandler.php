@@ -100,13 +100,10 @@ Class KeyHandler{
                     throw new ApiException(" :::The privatekey is empty::: ", 400,[],"");
                 }
                 else{
-                    //echo $toSign;
-
+                    
                     openssl_sign($toSign, $signature, $this->private_key, OPENSSL_ALGO_SHA256);
-                    //echo ':::::: '.$toSign;
-                    //var_dump($signature);
+                    
                     $signature_text = bin2hex($signature);
-                    //var_dump($signature_text);
                     if (isset($signature_text)) {
                         $this->logger->info("The signature is: ".$signature_text);
                     }
