@@ -15,7 +15,7 @@ use \Signer\Manager\Interceptor\MyLogger;
 class MiddlewareEvents
 {
     
-    function __construct(\rc\pe\Client\Interceptor\KeyHandler $signer)
+    function __construct(\Signer\Manager\Interceptor\KeyHandler $signer)
     {
         $this->signer = $signer;
         $this->logger = new MyLogger('MiddlewareEvents');

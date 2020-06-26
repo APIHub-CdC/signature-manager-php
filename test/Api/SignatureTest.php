@@ -1,6 +1,6 @@
 <?php
 
-namespace rc\pe\Client;
+namespace Signer\Manager\Client;
 
 use \GuzzleHttp\Client;
 use \GuzzleHttp\Event\Emitter;
