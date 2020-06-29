@@ -1,6 +1,6 @@
 <?php
 
-namespace Signer\Manager\Client;
+namespace Signer\Manager;
 
 use \Exception;
 
