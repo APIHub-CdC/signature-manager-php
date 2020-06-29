@@ -19,8 +19,8 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
         $this->signature = null;
         $this->signer = null;
         $this->valida = null;
-        $this->keypair = '/Users/globatos/Documents/CERTIFICADOS/keypair.p12';
-        $this->cert = '/Users/globatos/Documents/CERTIFICADOS/certificate.pem';
+        $this->keypair = '/path/to/keypair.p12';
+        $this->cert = '/path/to/certificate.pem';
         $this->password = getenv('KEY_PASSWORD');
     }
     
