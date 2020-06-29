@@ -6,7 +6,7 @@ use \GuzzleHttp\Middleware;
 use \GuzzleHttp\Psr7\Stream;
 use \Psr\Http\Message\RequestInterface as streamRequest;
 use \Psr\Http\Message\ResponseInterface as streamResponse;
-use Signer\Manager\Client\ApiException as apiException;
+use Signer\Manager\ApiException as apiException;
 
 use \Signer\Manager\Interceptor\KeyHandler;
 use \Signer\Manager\Interceptor\MyLogger;

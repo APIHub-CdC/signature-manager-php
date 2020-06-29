@@ -1,14 +1,14 @@
 <?php
 
-namespace Signer\Manager\Client;
+namespace Signer\Manager;
 
 use \GuzzleHttp\Client;
 use \GuzzleHttp\Event\Emitter;
 use \GuzzleHttp\Middleware;
 use \GuzzleHttp\HandlerStack as handlerStack;
 
-use \Signer\Manager\Client\ApiException;
-use \Signer\Manager\Client\Interceptor\KeyHandler;
+use \Signer\Manager\ApiException;
+use \Signer\Manager\Interceptor\KeyHandler;
 use \Signer\Manager\Interceptor\MiddlewareEvents;
 
 class SignatureTest extends \PHPUnit_Framework_TestCase
@@ -19,13 +19,14 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
         $this->signature = null;
         $this->signer = null;
         $this->valida = null;
-        $this->keypair = '/path/to/keypair.pkcs12';
-        $this->cert = '/path/to/certificate.pem';
+        $this->keypair = '/Users/globatos/Documents/CERTIFICADOS/keypair.p12';
+        $this->cert = '/Users/globatos/Documents/CERTIFICADOS/certificate.pem';
         $this->password = getenv('KEY_PASSWORD');
     }
     
     public function testKeyPairCert(){
         try{
+
             $this->signer = new KeyHandler($this->keypair, $this->cert, $this->password);
             $result = $this->signer;
             $this->assertTrue($this->signer == true);

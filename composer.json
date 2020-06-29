@@ -23,4 +23,5 @@
     "autoload-dev": {
         "psr-4": { "Signer\\Manager\\" : "test/" }
     }
+    
 }

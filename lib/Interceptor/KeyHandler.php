@@ -1,9 +1,9 @@
 <?php
 
-namespace Signer\Manager\Client\Interceptor;
+namespace Signer\Manager\Interceptor;
 
-use \Signer\Manager\Client\Interceptor\MyLogger;
-use \Signer\Manager\Client\ApiException;
+use \Signer\Manager\Interceptor\MyLogger;
+use \Signer\Manager\ApiException;
 
 Class KeyHandler{
     private $private_key = null;
