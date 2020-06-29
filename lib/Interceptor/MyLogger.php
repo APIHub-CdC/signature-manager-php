@@ -1,6 +1,6 @@
 <?php
 
-namespace Signer\Manager\Client\Interceptor;
+namespace Signer\Manager\Interceptor;
 
 use \Monolog\Logger;
 use \Monolog\Formatter\LineFormatter;
